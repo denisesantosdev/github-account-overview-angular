@@ -11,6 +11,7 @@ import { RepoCardComponent } from './components/repo-card/repo-card.component';
 import { StatsSectionComponent } from './components/stats-section/stats-section.component';
 import { RepoSectionComponent } from './components/repo-section/repo-section.component';
 import { UserScreenComponent } from './pages/user-screen/user-screen.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserScreenComponent } from './pages/user-screen/user-screen.component';
     RepoCardComponent,
     StatsSectionComponent,
     RepoSectionComponent,
-    UserScreenComponent
+    UserScreenComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
