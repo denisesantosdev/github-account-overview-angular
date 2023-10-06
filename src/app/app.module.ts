@@ -3,11 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchScreenComponent } from './search-screen/search-screen.component';
-import { NameSectionComponent } from './name-section/name-section.component';
-import { TabsComponent } from './tabs/tabs.component';
-import { StatComponent } from './stat/stat.component';
-import { RepoCardComponent } from './repo-card/repo-card.component';
+import { SearchScreenComponent } from './pages/search-screen/search-screen.component';
+import { NameSectionComponent } from './components/name-section/name-section.component';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { StatComponent } from './components/stat/stat.component';
+import { RepoCardComponent } from './components/repo-card/repo-card.component';
+import { StatsSectionComponent } from './components/stats-section/stats-section.component';
+import { RepoSectionComponent } from './components/repo-section/repo-section.component';
+import { UserScreenComponent } from './pages/user-screen/user-screen.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { RepoCardComponent } from './repo-card/repo-card.component';
     NameSectionComponent,
     TabsComponent,
     StatComponent,
-    RepoCardComponent
+    RepoCardComponent,
+    StatsSectionComponent,
+    RepoSectionComponent,
+    UserScreenComponent
   ],
   imports: [
     BrowserModule,
