@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserScreenComponent } from './user-screen.component';
+import { SearchScreenComponent } from './search-page.component';
 
-describe('UserScreenComponent', () => {
-  let component: UserScreenComponent;
-  let fixture: ComponentFixture<UserScreenComponent>;
+describe('SearchScreenComponent', () => {
+  let component: SearchScreenComponent;
+  let fixture: ComponentFixture<SearchScreenComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserScreenComponent ]
+      declarations: [ SearchScreenComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserScreenComponent);
+    fixture = TestBed.createComponent(SearchScreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
