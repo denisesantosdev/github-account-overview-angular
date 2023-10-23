@@ -1,3 +1,11 @@
-<app-name-section></app-name-section>
-<app-tabs></app-tabs>
-<router-outlet></router-outlet>
+<p>User Not Found.</p>
+
+<div *ngIf="APIResponse; else loader">
+    <app-name-section></app-name-section>
+    <app-tabs></app-tabs>
+    <router-outlet></router-outlet>
+  </div>
+  
+  <ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent implements OnInit {
-
+  APIResponse:boolean = true
   constructor() { }
 
   ngOnInit(): void {
