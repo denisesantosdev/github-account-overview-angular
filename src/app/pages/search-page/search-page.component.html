@@ -3,7 +3,9 @@
   <h1>Get your github account overview</h1>
   <div>
     <p>github.com/</p>
-    <input type="text" placeholder="YourUserName" />
-    <button [routerLink]="['user']">Search</button>
+    <form>
+      <input type="text" [(ngModel)]="searchQuery" (input)="validateInput()" name="searchQuery"/>
+      <button [routerLink]="['user']" [disabled]="disabled">Search</button>
+    </form>
   </div>
 </main>

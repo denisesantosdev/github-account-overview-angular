@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { NameSectionComponent } from './components/name-section/name-section.component';
 import { TabsComponent } from './components/tabs/tabs.component';
@@ -26,11 +28,8 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
     RepoSectionComponent,
     LoaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
