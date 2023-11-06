@@ -11,21 +11,39 @@ import { UserData } from '../models/userData';
 export class GithubUserService {
   private baseURL: string = '';
   private userData: UserData | any;
+  private shapedData: UserData | any;
 
   constructor(private http: HttpClient) {
     this.baseURL = environment.gitHubApi;
   }
 
-  getUser(user: string): Observable<UserData> {
-    this.userData = this
-                    .http
-                    .get<UserData>
-                    (`${this.baseURL}${user}`);
+  fetchUser(user: string): Observable<UserData> {
+    this.userData = this.http.get<UserData>(`${this.baseURL}${user}`);
 
-    console.log(user);
-    console.log(this.baseURL);
-    console.log(this.userData);
-
+    //console.log(user);
+    //console.log(this.userData);
     return this.userData;
+  }
+
+  shapeUserData(rawData: any) {
+    this.shapedData = {
+      login: rawData.login,
+      created_at: rawData.created_at,
+      followers: rawData.followers,
+      following: rawData.following,
+      name: rawData.name,
+      public_repos: rawData.public_repos,
+      html_url: rawData.html_url,
+    };
+
+    return this.shapedData;
+  }
+
+  getUserData() {
+    return this.userData;
+  }
+
+  getUserShapedData() {
+    return this.shapedData;
   }
 }

@@ -4,8 +4,15 @@
   <div>
     <p>github.com/</p>
     <form>
-      <input type="text" [(ngModel)]="searchQuery" (input)="validateInput()" name="searchQuery"/>
-      <button [routerLink]="['user']" [disabled]="disabled">Search</button>
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="enableButton()"
+        name="searchQuery"
+      />
+      <button [routerLink]="generateUserRoute()" [disabled]="disabled">
+        Search
+      </button>
     </form>
   </div>
 </main>

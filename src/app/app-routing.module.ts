@@ -6,16 +6,29 @@ import { StatsSectionComponent } from './components/stats-section/stats-section.
 import { RepoSectionComponent } from './components/repo-section/repo-section.component';
 
 const routes: Routes = [
-  {path: '', component: SearchPageComponent, pathMatch:'full'},
-  {path: 'user', redirectTo: 'user/stats', pathMatch:'full'},
-  {path: 'user', component: UserPageComponent, pathMatch:'prefix', children: [
-    {path: 'stats', component: StatsSectionComponent, pathMatch:'full',},
-    {path: 'repositories', component: RepoSectionComponent, pathMatch:'full',}
-  ]}
+  { path: '', component: SearchPageComponent, pathMatch: 'full' },
+  {
+    path: 'user/:username',
+    redirectTo: 'user/:username/stats',
+    pathMatch: 'full',
+  },
+  {
+    path: 'user/:username',
+    component: UserPageComponent,
+    pathMatch: 'prefix',
+    children: [
+      { path: 'stats', component: StatsSectionComponent, pathMatch: 'prefix' },
+      {
+        path: 'repositories',
+        component: RepoSectionComponent,
+        pathMatch: 'prefix',
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
