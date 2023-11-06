@@ -1,1 +1,7 @@
-<app-stat></app-stat>
+ <div *ngFor="let stat of stats; index as i">
+  <span>{{stats[i].statIcon}}</span>
+  <div>
+    <h2>{{stats[i].stat}}</h2>
+    <p>{{stats[i].statName}}</p>
+  </div>
+</div>

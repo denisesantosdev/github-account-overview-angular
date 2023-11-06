@@ -26,9 +26,9 @@ export class UserPageComponent implements OnInit {
   ngOnInit(): void {
     this.service.fetchUser(this.searhQuery.username).subscribe({
       next: (res) => {
-        console.log(res);
+        //console.log(res);
         this.user = this.service.shapeUserData(res);
-        console.log(this.user);
+        //console.log(this.user);
       },
       error: (err) => {
         if (err instanceof HttpErrorResponse) {

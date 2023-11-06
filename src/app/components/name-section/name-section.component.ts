@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserData } from 'src/app/models/userData';
 
 @Component({
   selector: 'app-name-section',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./name-section.component.css']
 })
 export class NameSectionComponent implements OnInit {
+  @Input() user?: UserData
 
   constructor() { }
 
