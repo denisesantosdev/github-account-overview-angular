@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserData } from 'src/app/models/userData';
+import { GithubRepoService } from 'src/app/services/github-repo.service';
 import { GithubUserService } from 'src/app/services/github-user.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class UserPageComponent implements OnInit {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private service: GithubUserService
+    private service: GithubUserService,
+    private repoService: GithubRepoService
   ) {
     this.activeRoute.params.subscribe((res) => {
       this.searhQuery = res;
@@ -45,5 +47,11 @@ export class UserPageComponent implements OnInit {
         }
       },
     });
+
+    this.repoService.fetchRepo(this.searhQuery.username).subscribe({
+      next: (res) => {
+        console.log(res);
+      }
+    })
   }
 }

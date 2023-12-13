@@ -17,7 +17,6 @@ export class StatsSectionComponent implements OnInit {
     this.service.getUserData().subscribe({
       next: (res: any) => {
         this.user = this.service.getUserShapedData();
-        console.log(this.user);
         this.stats = [
           {
             stat: this.user?.followers,
