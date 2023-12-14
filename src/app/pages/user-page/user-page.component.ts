@@ -53,7 +53,7 @@ export class UserPageComponent implements OnInit {
     this.repoService.fetchRepo(this.searhQuery.username).subscribe({
       next: (res) => {
         this.repos = this.repoService.shapeRepoData(res)
-        console.log(this.repos);
+        //console.log(this.repos);
       }
     })
   }

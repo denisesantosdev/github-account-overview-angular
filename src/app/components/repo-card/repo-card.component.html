@@ -1,23 +1,23 @@
 <div>
   <header>
-    <h2>Repository name</h2>
-    <p>Description</p>
+    <h2>{{repoData.repo.name}}</h2>
+    <p>{{repoData.repo.description}}</p>
   </header>
   <main>
     <ul>
       <li>
         <span>icon</span>
-        <p>12</p>
+        <p>{{repoData.repo.forks_count}}</p>
         <p>Forks</p>
       </li>
       <li>
         <span>icon</span>
-        <p>12</p>
+        <p>{{repoData.repo.watchers_count}}</p>
         <p>Watchers</p>
       </li>
       <li>
         <span>icon</span>
-        <p>12</p>
+        <p>{{repoData.repo.stargazers_count}}</p>
         <p>Stars</p>
       </li>
     </ul>
@@ -28,6 +28,6 @@
       <li>Last update: 12/12/2023</li>
       <li>Repo size: 1222</li>
     </ul>
-    <span>Language</span>
+    <span>{{repoData.repo.languages}}</span>
   </footer>
 </div>

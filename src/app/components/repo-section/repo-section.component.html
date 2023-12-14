@@ -13,8 +13,8 @@
   </div>
 </section>
 
-<main>
-  <app-repo-card></app-repo-card>
+<main *ngFor="let repo of repoData; index as i">
+  <app-repo-card [repoData]={repo}></app-repo-card>
 </main>
 
 <aside>
