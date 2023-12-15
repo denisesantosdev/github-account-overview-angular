@@ -1,6 +1,6 @@
 <section>
   <div>
-    <input type="search" placeholder="Search Repos" />
+    <input type="search" placeholder="Search Repos" [(ngModel)]="repoSearchQuery" (input)="searchRepos()"/>
     <button>search icon</button>
   </div>
   <div>
@@ -13,7 +13,7 @@
   </div>
 </section>
 
-<main *ngFor="let repo of repoData; index as i">
+<main *ngFor="let repo of filteredRepos; index as i">
   <app-repo-card [repoData]={repo}></app-repo-card>
 </main>
 
