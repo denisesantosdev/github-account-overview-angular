@@ -10,20 +10,17 @@ import { UserData } from '../models/userData';
 })
 export class GithubUserService {
   private baseURL: string = '';
-  private userData: UserData | any;
-  private shapedData: UserData | any;
-  private apiCallCount: number = 0;
+  private userData: any;
+  private shapedData!: UserData;
+  //private apiCallCount: number = 0;
 
   constructor(private http: HttpClient) {
     this.baseURL = environment.gitHubApi;
   }
 
-  fetchUser(user: string): Observable<UserData> {
-    this.userData = this.http.get<UserData>(`${this.baseURL}${user}`);
-    this.apiCallCount++
-    console.log(this.apiCallCount);
-    //console.log(user);
-    //console.log(this.userData);
+  fetchUser(user: string): Observable<any> {
+    this.userData = this.http.get<any>(`${this.baseURL}${user}`);
+
     return this.userData;
   }
 
@@ -33,7 +30,7 @@ export class GithubUserService {
       created_at: rawData.created_at,
       followers: rawData.followers,
       following: rawData.following,
-      name: rawData.name  || "Not provided",
+      name: rawData.name || 'Not provided',
       public_repos: rawData.public_repos,
       html_url: rawData.html_url,
     };

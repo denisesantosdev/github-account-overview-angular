@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { repoData } from 'src/app/models/repoData';
+import { userRepoData } from 'src/app/models/userRepoData';
 import { UserData } from 'src/app/models/userData';
 import { GithubRepoService } from 'src/app/services/github-repo.service';
 import { GithubUserService } from 'src/app/services/github-user.service';
@@ -12,9 +12,9 @@ import { GithubUserService } from 'src/app/services/github-user.service';
   styleUrls: ['./user-page.component.css'],
 })
 export class UserPageComponent implements OnInit {
-  APIResponse: any;
-  user?: UserData;
-  repos: repoData | undefined;
+  //APIResponse: any;
+  user!: UserData;
+  repos!: userRepoData[];
   searhQuery: any = '';
 
   constructor(
@@ -30,9 +30,7 @@ export class UserPageComponent implements OnInit {
   ngOnInit(): void {
     this.service.fetchUser(this.searhQuery.username).subscribe({
       next: (res) => {
-        //console.log(res);
         this.user = this.service.shapeUserData(res);
-        //console.log(this.user);
       },
       error: (err) => {
         if (err instanceof HttpErrorResponse) {
@@ -54,6 +52,20 @@ export class UserPageComponent implements OnInit {
       next: (res) => {
         this.repos = this.repoService.shapeRepoData(res)
         //console.log(this.repos);
+      },
+      error: (err) => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 404) {
+            // Handle 404 Not Found error (User not found)
+            console.error('User not found!');
+          } else {
+            // Handle other HTTP errors
+            console.error('An error occurred while fetching user data');
+          }
+        } else {
+          // Handle non-HTTP errors
+          console.error('An unexpected error occurred');
+        }
       }
     })
   }

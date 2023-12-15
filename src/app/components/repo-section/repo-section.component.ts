@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { repoData } from 'src/app/models/repoData';
+import { userRepoData } from 'src/app/models/userRepoData';
 import { GithubRepoService } from 'src/app/services/github-repo.service';
 
 @Component({
@@ -8,15 +8,17 @@ import { GithubRepoService } from 'src/app/services/github-repo.service';
   styleUrls: ['./repo-section.component.css']
 })
 export class RepoSectionComponent implements OnInit {
-  repoData: any
+  repoData!: userRepoData[]
 
   constructor(private service: GithubRepoService) { }
 
   ngOnInit(): void {
     this.service.getRepoData().subscribe({
-      next: (res: any) =>{
+      next: () =>{
         this.repoData = this.service.getRepoShapedData()
-        console.log(this.repoData);
+      },
+      error: (err: any) => {
+        console.log(err);
       }
     })
   }

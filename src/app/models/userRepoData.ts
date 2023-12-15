@@ -13,7 +13,7 @@ html_url
 size (kilobytes)
 */
 
-export type repoData = {
+export type userRepoData = {
   name: string;
   description: string;
   html_url: string;
