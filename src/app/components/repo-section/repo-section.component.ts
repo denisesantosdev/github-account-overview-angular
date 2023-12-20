@@ -11,7 +11,7 @@ export class RepoSectionComponent implements OnInit {
   repoData!: userRepoData[];
   filteredRepos!: userRepoData[];
   repoSearchQuery: string = '';
-  selectedSort: string = 'Alphabetically';
+  selectedSort: string = 'Newest';
 
   constructor(private service: GithubRepoService) {}
 
@@ -20,7 +20,7 @@ export class RepoSectionComponent implements OnInit {
       next: () => {
         this.repoData = this.service.getRepoShapedData();
         this.filteredRepos = this.repoData;
-        this.sortRepos()
+        this.sortRepos();
         //console.log(this.filteredRepos);
         //this.displayLanguageFilters();
       },
@@ -37,10 +37,6 @@ export class RepoSectionComponent implements OnInit {
   }
 
   sortRepos() {
-    console.log(this.selectedSort);
-    //console.log(this.filteredRepos.sort());
-    //if(this.selectedSort==='Alphabetically'){
-    //}
     if (this.selectedSort === 'Oldest') {
       this.filteredRepos.sort((a, b) => {
         const date1: any = new Date(a.created_at);
@@ -55,14 +51,11 @@ export class RepoSectionComponent implements OnInit {
 
         return date2 - date1;
       });
-    } /* else if (this.selectedSort === 'Alphabetically') {
-      this.filteredRepos.sort((a, b) => {
-        const name1: any = new Date(a.name);
-        const name2: any = new Date(b.name);
-
-        return name2 - name1;
-      });
-    } */
+    } else {
+      this.filteredRepos.sort((a, b) =>
+        a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+      );
+    }
   }
 
   /* generate language button filters 
