@@ -7,9 +7,19 @@
       (input)="searchRepos()"
     />
   </div>
+  <aside>
+    <div>
+      <input type="radio" name="language-filter" id="all" checked>
+      <label for="all">All repositories</label>
+    </div>
+    <div *ngFor="let item of languages">
+      <input type="radio" name="language-filter" id={{item}}>
+      <label for={{item}}>{{item}}</label>
+    </div>
+  </aside>
   <div>
     <label>Sort by: </label>
-    <select  [(ngModel)]="selectedSort" (change)="sortRepos()">
+    <select [(ngModel)]="selectedSort" (change)="sortRepos()">
       <option>Newest</option>
       <option>Oldest</option>
       <option>Alphabetically</option>
@@ -20,9 +30,3 @@
 <main *ngFor="let repo of filteredRepos; index as i">
   <app-repo-card [repoData]="{repo}"></app-repo-card>
 </main>
-
-<aside>
-  <ul>
-    <li>All repositories (12)</li>
-  </ul>
-</aside>

@@ -12,6 +12,7 @@ export class RepoSectionComponent implements OnInit {
   filteredRepos!: userRepoData[];
   repoSearchQuery: string = '';
   selectedSort: string = 'Newest';
+  languages: string[] = []
 
   constructor(private service: GithubRepoService) {}
 
@@ -21,6 +22,7 @@ export class RepoSectionComponent implements OnInit {
         this.repoData = this.service.getRepoShapedData();
         this.filteredRepos = this.repoData;
         this.sortRepos();
+        this.generateLanguagesFilters()
         //console.log(this.filteredRepos);
         //this.displayLanguageFilters();
       },
@@ -28,6 +30,7 @@ export class RepoSectionComponent implements OnInit {
         console.log(err);
       },
     });
+
   }
 
   searchRepos() {
@@ -58,8 +61,19 @@ export class RepoSectionComponent implements OnInit {
     }
   }
 
+  generateLanguagesFilters() {
+    this.languages = this.repoData
+      .map((repo) => {
+        return repo.language;
+      })
+      .filter((value, index, array) => array.indexOf(value) === index);
+
+      console.log(this.languages);
+  }
+
   /* generate language button filters 
     map repoData return repo.language
+  
   
 
   displayLanguageFilters() {
