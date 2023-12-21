@@ -12,7 +12,8 @@ export class RepoSectionComponent implements OnInit {
   filteredRepos!: userRepoData[];
   repoSearchQuery: string = '';
   selectedSort: string = 'Newest';
-  languages: string[] = []
+  SelectedLanguage: string = 'All repositories';
+  languages: string[] = [];
 
   constructor(private service: GithubRepoService) {}
 
@@ -22,7 +23,7 @@ export class RepoSectionComponent implements OnInit {
         this.repoData = this.service.getRepoShapedData();
         this.filteredRepos = this.repoData;
         this.sortRepos();
-        this.generateLanguagesFilters()
+        this.generateLanguagesFilters();
         //console.log(this.filteredRepos);
         //this.displayLanguageFilters();
       },
@@ -30,7 +31,6 @@ export class RepoSectionComponent implements OnInit {
         console.log(err);
       },
     });
-
   }
 
   searchRepos() {
@@ -67,10 +67,19 @@ export class RepoSectionComponent implements OnInit {
         return repo.language;
       })
       .filter((value, index, array) => array.indexOf(value) === index);
-
-      console.log(this.languages);
   }
 
+  filterByLanguage(e: any) {
+    this.SelectedLanguage = e.target.id;
+
+    this.filteredRepos = this.repoData.filter((repo) => {
+      return repo.language === this.SelectedLanguage;
+    });
+
+    if(this.filteredRepos.length===0){
+      this.filteredRepos=this.repoData
+    }
+  }
   /* generate language button filters 
     map repoData return repo.language
   

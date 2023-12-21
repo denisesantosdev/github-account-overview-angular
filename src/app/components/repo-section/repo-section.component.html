@@ -9,12 +9,24 @@
   </div>
   <aside>
     <div>
-      <input type="radio" name="language-filter" id="all" checked>
+      <input
+        type="radio"
+        name="language-filter"
+        id="all"
+        checked
+        (change)="filterByLanguage($event)"
+      />
       <label for="all">All repositories</label>
     </div>
     <div *ngFor="let item of languages">
-      <input type="radio" name="language-filter" id={{item}}>
-      <label for={{item}}>{{item}}</label>
+      <input
+        type="radio"
+        name="language-filter"
+        id="{{ item }}"
+        value="{{ item }}"
+        (change)="filterByLanguage($event)"
+      />
+      <label for="{{ item }}">{{ item }}</label>
     </div>
   </aside>
   <div>
