@@ -15,6 +15,8 @@ import { RepoSectionComponent } from './components/repo-section/repo-section.com
 import { LoaderComponent } from './components/loader/loader.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +30,9 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
     RepoSectionComponent,
     LoaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FontAwesomeModule ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
