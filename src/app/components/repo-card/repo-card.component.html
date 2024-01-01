@@ -8,17 +8,20 @@
   <main>
     <ul>
       <li>
-        <span>icon</span>
+    <fa-icon [icon]="forkIcon"></fa-icon>
+        
         <p>{{repoData.repo.forks_count}}</p>
         <p>Forks</p>
       </li>
       <li>
-        <span>icon</span>
+    <fa-icon [icon]="watchersIcon"></fa-icon>
+        
         <p>{{repoData.repo.watchers_count}}</p>
         <p>Watchers</p>
       </li>
       <li>
-        <span>icon</span>
+    <fa-icon [icon]="starIcon"></fa-icon>
+        
         <p>{{repoData.repo.stargazers_count}}</p>
         <p>Stars</p>
       </li>

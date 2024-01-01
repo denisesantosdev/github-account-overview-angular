@@ -4,6 +4,9 @@ import { GithubUserService } from 'src/app/services/github-user.service';
 
 import { formatDate } from 'src/app/shared/utils/format-date';
 
+import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
+
+
 @Component({
   selector: 'app-stats-section',
   templateUrl: './stats-section.component.html',
@@ -12,6 +15,7 @@ import { formatDate } from 'src/app/shared/utils/format-date';
 export class StatsSectionComponent implements OnInit {
   user!: UserData;
   stats!: any[];
+  //FollowersIcon = fontAwesomeicons.faUser
 
   constructor(private service: GithubUserService) {}
 
@@ -24,22 +28,22 @@ export class StatsSectionComponent implements OnInit {
           {
             stat: this.user.followers,
             statName: 'Followers',
-            statIcon: 'Icon',
+            statIcon: fontAwesomeicons.faUser,
           },
           {
             stat: this.user.following,
             statName: 'Following',
-            statIcon: 'Icon',
+            statIcon: fontAwesomeicons.faUser,
           },
           {
             stat: formatDate(this.user.created_at),
             statName: 'Created At',
-            statIcon: 'Icon',
+            statIcon: fontAwesomeicons.faClock,
           },
           {
             stat: this.user.public_repos,
             statName: 'Number of Public Repos',
-            statIcon: 'Icon',
+            statIcon: fontAwesomeicons.faCode,
           },
         ];
       },

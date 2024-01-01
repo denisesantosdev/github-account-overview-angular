@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
 
 @Component({
   selector: 'app-search-page',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SearchPageComponent implements OnInit {
   searchQuery: string = '';
   disabled: boolean = true;
+  githubIcon = fontAwesomeicons.faGithub
 
   constructor() {}
 
