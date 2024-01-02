@@ -3,7 +3,7 @@
     <app-search
       placeholderText="Search Repos"
       id="search-repos"
-      (messageEvent)="receiveSearchQuery($event)"
+      (searchQueryEvent)="receiveSearchQuery($event)"
       (input)="searchRepos()"
     ></app-search>
   </div>

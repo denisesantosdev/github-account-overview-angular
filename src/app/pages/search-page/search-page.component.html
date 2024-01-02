@@ -9,7 +9,7 @@
       <app-search
         placeholderText="Your username"
         id="user-search"
-        (messageEvent)="receiveSearchQuery($event)"
+        (searchQueryEvent)="receiveSearchQuery($event)"
         (input)="enableButton()"
       ></app-search>
       <button [routerLink]="generateUserRoute()" [disabled]="disabled">
