@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { filter } from 'rxjs';
 import { userRepoData } from 'src/app/models/userRepoData';
 import { GithubRepoService } from 'src/app/services/github-repo.service';
-
 
 @Component({
   selector: 'app-repo-section',
@@ -15,6 +15,7 @@ export class RepoSectionComponent implements OnInit {
   selectedSort: string = 'Newest';
   SelectedLanguage: string = 'All repositories';
   languages: string[] = [];
+  languageCount: number = 0;
 
   constructor(private service: GithubRepoService) {}
 
@@ -68,6 +69,16 @@ export class RepoSectionComponent implements OnInit {
         return repo.language;
       })
       .filter((value, index, array) => array.indexOf(value) === index);
+
+      this.languageCount = this.filteredRepos.length
+  }
+
+  countOccurrences(target: any) {
+    return this.repoData
+      .map((repo) => {
+        return repo.language;
+      })
+      .filter((item) => item === target).length;
   }
 
   filterByLanguage(e: any) {
@@ -77,8 +88,8 @@ export class RepoSectionComponent implements OnInit {
       return repo.language === this.SelectedLanguage;
     });
 
-    if(this.filteredRepos.length===0){
-      this.filteredRepos=this.repoData
+    if (this.filteredRepos.length === 0) {
+      this.filteredRepos = this.repoData;
     }
   }
   /* generate language button filters 
