@@ -6,12 +6,12 @@
   <div>
     <p>github.com/</p>
     <form>
-      <input
-        type="text"
-        [(ngModel)]="searchQuery"
+      <app-search
+        placeholderText="Your username"
+        id="user-search"
+        (messageEvent)="receiveSearchQuery($event)"
         (input)="enableButton()"
-        name="searchQuery"
-      />
+      ></app-search>
       <button [routerLink]="generateUserRoute()" [disabled]="disabled">
         Search
       </button>

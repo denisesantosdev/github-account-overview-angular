@@ -16,6 +16,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     StatsSectionComponent,
     RepoSectionComponent,
     LoaderComponent,
+    SearchComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FontAwesomeModule ],
   providers: [],

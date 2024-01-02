@@ -35,6 +35,10 @@ export class RepoSectionComponent implements OnInit {
     });
   }
 
+  receiveSearchQuery(query: string) {
+    this.repoSearchQuery = query
+  }
+
   searchRepos() {
     this.filteredRepos = this.repoData.filter((repo) => {
       return repo.name.includes(this.repoSearchQuery);

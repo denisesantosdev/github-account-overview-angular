@@ -7,7 +7,7 @@ import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
   styleUrls: ['./search-page.component.css'],
 })
 export class SearchPageComponent implements OnInit {
-  searchQuery: string = '';
+  userSearchQuery: string = '';
   disabled: boolean = true;
   githubIcon = fontAwesomeicons.faGithub
 
@@ -17,16 +17,20 @@ export class SearchPageComponent implements OnInit {
     
   }
 
+  receiveSearchQuery(query: string) {
+    this.userSearchQuery = query
+  }
+
   enableButton() {
-    if (this.searchQuery === '') {
+    if (this.userSearchQuery === '') {
       this.disabled = true;
     } else {
       this.disabled = false;
-      //console.log(this.searchQuery);
+      //console.log(this.userSearchQuery);
     }
   }
 
   generateUserRoute():string{
-    return `user/${this.searchQuery}`
+    return `user/${this.userSearchQuery}`
   }
 }

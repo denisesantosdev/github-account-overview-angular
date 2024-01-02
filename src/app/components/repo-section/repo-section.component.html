@@ -1,11 +1,11 @@
 <section>
   <div>
-    <input
-      type="search"
-      placeholder="Search Repos"
-      [(ngModel)]="repoSearchQuery"
+    <app-search
+      placeholderText="Search Repos"
+      id="search-repos"
+      (messageEvent)="receiveSearchQuery($event)"
       (input)="searchRepos()"
-    />
+    ></app-search>
   </div>
   <aside>
     <div>
@@ -16,7 +16,7 @@
         checked
         (change)="filterByLanguage($event)"
       />
-      <label for="all">All repositories ({{this.languageCount}})</label>
+      <label for="all">All repositories ({{ this.languageCount }})</label>
     </div>
     <div *ngFor="let item of languages">
       <input
@@ -26,7 +26,7 @@
         value="{{ item }}"
         (change)="filterByLanguage($event)"
       />
-      <label for="{{ item }}">{{ item }} ({{ countOccurrences(item)}})</label>
+      <label for="{{ item }}">{{ item }} ({{ countOccurrences(item) }})</label>
     </div>
   </aside>
   <div>
