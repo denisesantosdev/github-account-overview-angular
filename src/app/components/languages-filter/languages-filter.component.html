@@ -1,0 +1,20 @@
+<div>
+    <input
+      type="radio"
+      name="language-filter"
+      id="all languages"
+      checked
+      (change)="getSelectedLanguage($event)"
+    />
+    <label for="all languages">All repositories ({{ this.languageCount }})</label>
+  </div>
+  <div *ngFor="let item of languages">
+    <input
+      type="radio"
+      name="language-filter"
+      id="{{ item }}"
+      value="{{ item }}"
+      (change)="getSelectedLanguage($event)"
+    />
+    <label for="{{ item }}">{{ item }} ({{ countLanguageOccurrences(item) }})</label>
+  </div>

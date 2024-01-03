@@ -13,7 +13,7 @@ export class RepoSectionComponent implements OnInit {
   filteredRepos!: userRepoData[];
   repoSearchQuery: string = '';
   selectedSort: string = 'Newest';
-  SelectedLanguage: string = 'All repositories';
+  selectedLanguage!: string;
   languages: string[] = [];
   languageCount: number = 0;
 
@@ -25,9 +25,6 @@ export class RepoSectionComponent implements OnInit {
         this.repoData = this.service.getRepoShapedData();
         this.filteredRepos = this.repoData;
         this.sortRepos();
-        this.generateLanguagesFilters();
-        //console.log(this.filteredRepos);
-        //this.displayLanguageFilters();
       },
       error: (err: any) => {
         console.log(err);
@@ -36,13 +33,28 @@ export class RepoSectionComponent implements OnInit {
   }
 
   receiveSearchQuery(query: string) {
-    this.repoSearchQuery = query
+    this.repoSearchQuery = query;
+  }
+
+  receiveSelectedLanguage(language: string) {
+    this.selectedLanguage = language;
+    console.log(this.selectedLanguage);
   }
 
   searchRepos() {
     this.filteredRepos = this.repoData.filter((repo) => {
       return repo.name.includes(this.repoSearchQuery);
     });
+  }
+
+  filterByLanguage() {
+    this.filteredRepos = this.repoData.filter((repo) => {
+      return repo.language === this.selectedLanguage;
+    });
+
+    if (this.filteredRepos.length === 0) {
+      this.filteredRepos = this.repoData;
+    }
   }
 
   sortRepos() {
@@ -67,7 +79,7 @@ export class RepoSectionComponent implements OnInit {
     }
   }
 
-  generateLanguagesFilters() {
+  /* generateLanguagesFilters() {
     this.languages = this.repoData
       .map((repo) => {
         return repo.language;
@@ -95,7 +107,7 @@ export class RepoSectionComponent implements OnInit {
     if (this.filteredRepos.length === 0) {
       this.filteredRepos = this.repoData;
     }
-  }
+  } */
   /* generate language button filters 
     map repoData return repo.language
   

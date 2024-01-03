@@ -17,6 +17,7 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchComponent } from './components/search/search.component';
+import { LanguagesFilterComponent } from './components/languages-filter/languages-filter.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SearchComponent } from './components/search/search.component';
     RepoSectionComponent,
     LoaderComponent,
     SearchComponent,
+    LanguagesFilterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FontAwesomeModule ],
   providers: [],
