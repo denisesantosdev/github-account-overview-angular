@@ -14,8 +14,6 @@ export class RepoSectionComponent implements OnInit {
   repoSearchQuery: string = '';
   selectedSort: string = 'Newest';
   selectedLanguage!: string;
-  //languages: string[] = [];
-  //languageCount: number = 0;
 
   constructor(private service: GithubRepoService) {}
 
@@ -81,55 +79,4 @@ export class RepoSectionComponent implements OnInit {
       );
     }
   }
-
-  /* generateLanguagesFilters() {
-    this.languages = this.repoData
-      .map((repo) => {
-        return repo.language;
-      })
-      .filter((value, index, array) => array.indexOf(value) === index);
-
-      this.languageCount = this.filteredRepos.length
-  }
-
-  countOccurrences(target: any) {
-    return this.repoData
-      .map((repo) => {
-        return repo.language;
-      })
-      .filter((item) => item === target).length;
-  }
-
-  filterByLanguage(e: any) {
-    this.SelectedLanguage = e.target.id;
-
-    this.filteredRepos = this.repoData.filter((repo) => {
-      return repo.language === this.SelectedLanguage;
-    });
-
-    if (this.filteredRepos.length === 0) {
-      this.filteredRepos = this.repoData;
-    }
-  } */
-  /* generate language button filters 
-    map repoData return repo.language
-  
-  
-
-  displayLanguageFilters() {
-    // find all the unique language elements 
-    // filter => find 
-    let languages = this.repoData
-      .map((repo) => {
-        return repo.language;
-      })
-      .filter((value, index, array) => array.indexOf(value) === index);
-
-    return languages;
-  }
-
-  
-    filter repo.language === (language)
-    return filteredRepos.length
-  */
 }

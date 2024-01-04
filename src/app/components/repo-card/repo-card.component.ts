@@ -18,7 +18,6 @@ export class RepoCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    //console.log(this.repoData.repo.created_at);
     this.createdAt = formatDate(this.repoData.repo.created_at)
     this.lastUpdateAt = formatDate(this.repoData.repo.pushed_at)
   }

@@ -12,7 +12,6 @@ export class GithubUserService {
   private baseURL: string = '';
   private userData: any;
   private shapedData!: UserData;
-  //private apiCallCount: number = 0;
 
   constructor(private http: HttpClient) {
     this.baseURL = environment.gitHubApi;
