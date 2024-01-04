@@ -26,7 +26,6 @@ export class SearchPageComponent implements OnInit {
       this.disabled = true;
     } else {
       this.disabled = false;
-      //console.log(this.userSearchQuery);
     }
   }
 

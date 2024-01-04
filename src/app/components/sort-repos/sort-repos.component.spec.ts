@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatComponent } from './stat.component';
+import { SortReposComponent } from './sort-repos.component';
 
-describe('StatComponent', () => {
-  let component: StatComponent;
-  let fixture: ComponentFixture<StatComponent>;
+describe('SortReposComponent', () => {
+  let component: SortReposComponent;
+  let fixture: ComponentFixture<SortReposComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatComponent ]
+      declarations: [ SortReposComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StatComponent);
+    fixture = TestBed.createComponent(SortReposComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

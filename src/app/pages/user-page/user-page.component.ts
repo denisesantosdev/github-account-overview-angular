@@ -12,7 +12,6 @@ import { GithubUserService } from 'src/app/services/github-user.service';
   styleUrls: ['./user-page.component.css'],
 })
 export class UserPageComponent implements OnInit {
-  //APIResponse: any;
   user!: UserData;
   repos!: userRepoData[];
   searhQuery: any = '';

@@ -15,7 +15,6 @@ import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
 export class StatsSectionComponent implements OnInit {
   user!: UserData;
   stats!: any[];
-  //FollowersIcon = fontAwesomeicons.faUser
 
   constructor(private service: GithubUserService) {}
 

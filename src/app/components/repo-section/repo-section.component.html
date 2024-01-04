@@ -8,34 +8,18 @@
     ></app-search>
   </div>
   <aside>
-    <div>
-      <input
-        type="radio"
-        name="language-filter"
-        id="all"
-        checked
-        (change)="filterByLanguage($event)"
-      />
-      <label for="all">All repositories ({{ this.languageCount }})</label>
-    </div>
-    <div *ngFor="let item of languages">
-      <input
-        type="radio"
-        name="language-filter"
-        id="{{ item }}"
-        value="{{ item }}"
-        (change)="filterByLanguage($event)"
-      />
-      <label for="{{ item }}">{{ item }} ({{ countOccurrences(item) }})</label>
-    </div>
+    <app-languages-filter
+      (languageEvent)="receiveSelectedLanguage($event)"
+      (change)="filterByLanguage()"
+    ></app-languages-filter>
   </aside>
   <div>
-    <label>Sort by: </label>
-    <select [(ngModel)]="selectedSort" (change)="sortRepos()">
-      <option>Newest</option>
-      <option>Oldest</option>
-      <option>Alphabetically</option>
-    </select>
+    <app-sort-repos
+      name="sort-options"
+      id="sort-options"
+      (sortOptionEvent)="receiveSortOption($event)"
+      (change)="sortRepos()"
+    ></app-sort-repos>
   </div>
 </section>
 

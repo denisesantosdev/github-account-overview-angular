@@ -13,9 +13,7 @@ export class RepoSectionComponent implements OnInit {
   filteredRepos!: userRepoData[];
   repoSearchQuery: string = '';
   selectedSort: string = 'Newest';
-  SelectedLanguage: string = 'All repositories';
-  languages: string[] = [];
-  languageCount: number = 0;
+  selectedLanguage!: string;
 
   constructor(private service: GithubRepoService) {}
 
@@ -25,9 +23,6 @@ export class RepoSectionComponent implements OnInit {
         this.repoData = this.service.getRepoShapedData();
         this.filteredRepos = this.repoData;
         this.sortRepos();
-        this.generateLanguagesFilters();
-        //console.log(this.filteredRepos);
-        //this.displayLanguageFilters();
       },
       error: (err: any) => {
         console.log(err);
@@ -36,13 +31,31 @@ export class RepoSectionComponent implements OnInit {
   }
 
   receiveSearchQuery(query: string) {
-    this.repoSearchQuery = query
+    this.repoSearchQuery = query;
+  }
+
+  receiveSelectedLanguage(language: string) {
+    this.selectedLanguage = language;
+  }
+
+  receiveSortOption(option:string){
+    this.selectedSort = option
   }
 
   searchRepos() {
     this.filteredRepos = this.repoData.filter((repo) => {
       return repo.name.includes(this.repoSearchQuery);
     });
+  }
+
+  filterByLanguage() {
+    this.filteredRepos = this.repoData.filter((repo) => {
+      return repo.language === this.selectedLanguage;
+    });
+
+    if (this.filteredRepos.length === 0) {
+      this.filteredRepos = this.repoData;
+    }
   }
 
   sortRepos() {
@@ -66,55 +79,4 @@ export class RepoSectionComponent implements OnInit {
       );
     }
   }
-
-  generateLanguagesFilters() {
-    this.languages = this.repoData
-      .map((repo) => {
-        return repo.language;
-      })
-      .filter((value, index, array) => array.indexOf(value) === index);
-
-      this.languageCount = this.filteredRepos.length
-  }
-
-  countOccurrences(target: any) {
-    return this.repoData
-      .map((repo) => {
-        return repo.language;
-      })
-      .filter((item) => item === target).length;
-  }
-
-  filterByLanguage(e: any) {
-    this.SelectedLanguage = e.target.id;
-
-    this.filteredRepos = this.repoData.filter((repo) => {
-      return repo.language === this.SelectedLanguage;
-    });
-
-    if (this.filteredRepos.length === 0) {
-      this.filteredRepos = this.repoData;
-    }
-  }
-  /* generate language button filters 
-    map repoData return repo.language
-  
-  
-
-  displayLanguageFilters() {
-    // find all the unique language elements 
-    // filter => find 
-    let languages = this.repoData
-      .map((repo) => {
-        return repo.language;
-      })
-      .filter((value, index, array) => array.indexOf(value) === index);
-
-    return languages;
-  }
-
-  
-    filter repo.language === (language)
-    return filteredRepos.length
-  */
 }

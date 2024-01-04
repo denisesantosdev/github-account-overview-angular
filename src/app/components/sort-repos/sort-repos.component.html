@@ -1,0 +1,6 @@
+<label for="{{ id }}">Sort by: </label>
+<select name="{{ name }}" id="{{ id }}" (change)="getSortOption($event)">
+  <option *ngFor="let option of sortOptions" value="{{ option }}">
+    {{ option }}
+  </option>
+</select>
