@@ -14,12 +14,18 @@
     ></app-languages-filter>
   </aside>
   <div>
-    <label>Sort by: </label>
+    <app-sort-repos
+      name="sort-options"
+      id="sort-options"
+      (sortOptionEvent)="receiveSortOption($event)"
+      (change)="sortRepos()"
+    ></app-sort-repos>
+    <!-- <label>Sort by: </label>
     <select [(ngModel)]="selectedSort" (change)="sortRepos()">
       <option>Newest</option>
       <option>Oldest</option>
       <option>Alphabetically</option>
-    </select>
+    </select> -->
   </div>
 </section>
 

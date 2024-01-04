@@ -14,8 +14,8 @@ export class RepoSectionComponent implements OnInit {
   repoSearchQuery: string = '';
   selectedSort: string = 'Newest';
   selectedLanguage!: string;
-  languages: string[] = [];
-  languageCount: number = 0;
+  //languages: string[] = [];
+  //languageCount: number = 0;
 
   constructor(private service: GithubRepoService) {}
 
@@ -38,7 +38,10 @@ export class RepoSectionComponent implements OnInit {
 
   receiveSelectedLanguage(language: string) {
     this.selectedLanguage = language;
-    console.log(this.selectedLanguage);
+  }
+
+  receiveSortOption(option:string){
+    this.selectedSort = option
   }
 
   searchRepos() {

@@ -18,6 +18,7 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchComponent } from './components/search/search.component';
 import { LanguagesFilterComponent } from './components/languages-filter/languages-filter.component';
+import { SortReposComponent } from './components/sort-repos/sort-repos.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LanguagesFilterComponent } from './components/languages-filter/language
     LoaderComponent,
     SearchComponent,
     LanguagesFilterComponent,
+    SortReposComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FontAwesomeModule ],
   providers: [],
