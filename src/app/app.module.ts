@@ -5,14 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
-import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { SearchPageComponent } from './routes/search-page/search-page.component';
 import { NameSectionComponent } from './components/name-section/name-section.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { RepoCardComponent } from './components/repo-card/repo-card.component';
 import { StatsSectionComponent } from './components/stats-section/stats-section.component';
 import { RepoSectionComponent } from './components/repo-section/repo-section.component';
 import { LoaderComponent } from './components/loader/loader.component';
-import { UserPageComponent } from './pages/user-page/user-page.component';
+import { UserPageComponent } from './routes/user-page/user-page.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchComponent } from './components/search/search.component';
