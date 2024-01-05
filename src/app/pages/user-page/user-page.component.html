@@ -1,10 +1,9 @@
+<div *ngIf="apiResponse; else showError">
+  <app-name-section [user]="user"></app-name-section>
+  <app-tabs></app-tabs>
+  <router-outlet></router-outlet>
+</div>
 
-<div>
-    <app-name-section [user]="user"></app-name-section>
-    <app-tabs></app-tabs>
-    <router-outlet></router-outlet>
-  </div>
-  
-  <ng-template #loader>
-    <app-loader></app-loader>
+<ng-template #showError>
+  <app-error errorText="{{ errorText }}"></app-error>
 </ng-template>

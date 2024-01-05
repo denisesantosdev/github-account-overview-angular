@@ -14,7 +14,9 @@ import { GithubUserService } from 'src/app/services/github-user.service';
 export class UserPageComponent implements OnInit {
   user!: UserData;
   repos!: userRepoData[];
+  apiResponse: boolean = true;
   searhQuery: any = '';
+  errorText: string = '';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -34,38 +36,37 @@ export class UserPageComponent implements OnInit {
       error: (err) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 404) {
-            // Handle 404 Not Found error (User not found)
-            console.error('User not found!');
+            this.apiResponse = false;
+            this.errorText = 'User not found!';
           } else {
-            // Handle other HTTP errors
-            console.error('An error occurred while fetching user data');
+            this.apiResponse = false;
+            this.errorText = 'An error occurred while fetching user data';
           }
         } else {
-          // Handle non-HTTP errors
-          console.error('An unexpected error occurred');
+          this.apiResponse = false;
+          this.errorText = 'An unexpected error occurred';
         }
       },
     });
 
     this.repoService.fetchRepo(this.searhQuery.username).subscribe({
       next: (res) => {
-        this.repos = this.repoService.shapeRepoData(res)
-        //console.log(this.repos);
+        this.repos = this.repoService.shapeRepoData(res);
       },
       error: (err) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 404) {
-            // Handle 404 Not Found error (User not found)
-            console.error('User not found!');
+            this.apiResponse = false;
+            this.errorText = 'User not found!';
           } else {
-            // Handle other HTTP errors
-            console.error('An error occurred while fetching user data');
+            this.apiResponse = false;
+            this.errorText = 'An error occurred while fetching user data';
           }
         } else {
-          // Handle non-HTTP errors
-          console.error('An unexpected error occurred');
+          this.apiResponse = false;
+          this.errorText = 'An unexpected error occurred';
         }
-      }
-    })
+      },
+    });
   }
 }
