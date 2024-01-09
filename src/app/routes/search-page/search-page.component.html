@@ -1,18 +1,19 @@
 <main>
   <span>
-    <fa-icon [icon]="githubIcon"></fa-icon>
+    <fa-icon [icon]="githubIcon" size="6x"></fa-icon>
   </span>
-  <h1>Get your github account overview</h1>
+  <h1 class="text-4xl font-bold">Get your github account overview</h1>
   <div>
-    <p>github.com/</p>
     <form>
       <app-search
         placeholderText="Your username"
+        labelText="github.com/"
         id="user-search"
         (searchQueryEvent)="receiveSearchQuery($event)"
         (input)="enableButton()"
       ></app-search>
-      <button [routerLink]="generateUserRoute()" [disabled]="disabled">
+      <button [routerLink]="generateUserRoute()" [disabled]="disabled"
+      class="btn btn-primary">
         Search
       </button>
     </form>
