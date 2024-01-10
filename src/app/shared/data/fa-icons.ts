@@ -9,6 +9,7 @@ import {
   faCodeFork,
   faEye,
   faStar,
+  faArrowLeft
 } from '@fortawesome/free-solid-svg-icons';
 
 export const fontAwesomeicons = {
@@ -22,4 +23,5 @@ export const fontAwesomeicons = {
   faCodeFork: faCodeFork,
   faEye: faEye,
   faStar: faStar,
+  faArrowLeft: faArrowLeft
 };

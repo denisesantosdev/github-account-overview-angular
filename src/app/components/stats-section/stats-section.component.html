@@ -1,8 +1,18 @@
- <div *ngFor="let stat of stats; index as i">
+<!--  <div *ngFor="let stat of stats; index as i">
  <fa-icon [icon]=stats[i].statIcon></fa-icon>
 
   <div>
     <h2>{{stats[i].stat}}</h2>
     <p>{{stats[i].statName}}</p>
+  </div>
+</div> -->
+
+<div class="stats shadow stats-vertical lg:stats-horizontal" >
+  <div class="stat" *ngFor="let stat of stats; index as i">
+    <div class="stat-title">{{ stats[i].statName }}</div>
+    <div class="stat-value text-primary">{{ stats[i].stat }}</div>
+    <div class="stat-figure text-primary">
+      <fa-icon [icon]="stats[i].statIcon"></fa-icon>
+    </div>
   </div>
 </div>

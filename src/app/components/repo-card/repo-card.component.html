@@ -1,37 +1,46 @@
 <div>
   <header>
-    <a href={{repoData.repo.html_url}} target="_blank">
-      <h2>{{repoData.repo.name}}</h2>
+    <a href="{{ repoData.repo.html_url }}" target="_blank">
+      <h2 class="text-2xl text-primary">{{ repoData.repo.name }}</h2>
     </a>
-    <p>{{repoData.repo.description}}</p>
+    <p>{{ repoData.repo.description }}</p>
+    <span>{{ repoData.repo.language }}</span>
   </header>
   <main>
-    <ul>
-      <li>
-    <fa-icon [icon]="forkIcon"></fa-icon>
-        
-        <p>{{repoData.repo.forks_count}}</p>
-        <p>Forks</p>
-      </li>
-      <li>
-    <fa-icon [icon]="watchersIcon"></fa-icon>
-        
-        <p>{{repoData.repo.watchers_count}}</p>
-        <p>Watchers</p>
-      </li>
-      <li>
-    <fa-icon [icon]="starIcon"></fa-icon>
-        
-        <p>{{repoData.repo.stargazers_count}}</p>
-        <p>Stars</p>
-      </li>
-    </ul>
+    <div class="stats shadow stats-vertical lg:stats-horizontal">
+      <div class="stat">
+        <div class="stat-figure text-primary">
+          <fa-icon [icon]="forkIcon"></fa-icon>
+        </div>
+        <div class="stat-title">Forks</div>
+        <div class="stat-value text-primary">
+          <p>{{ repoData.repo.forks_count }}</p>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure text-primary">
+          <fa-icon [icon]="watchersIcon"></fa-icon>
+        </div>
+        <div class="stat-title">Watchers</div>
+        <div class="stat-value text-primary">
+          <p>{{ repoData.repo.watchers_count }}</p>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure text-primary">
+          <fa-icon [icon]="starIcon"></fa-icon>
+        </div>
+        <div class="stat-title">Stars</div>
+        <div class="stat-value text-primary">
+          <p>{{ repoData.repo.stargazers_count }}</p>
+        </div>
+      </div>
+    </div>
   </main>
   <footer>
     <ul>
-       <li>Created at: {{createdAt}}</li>
-      <li>Last update: {{lastUpdateAt}}</li>
+      <li>Created at: {{ createdAt }}</li>
+      <li>Last update: {{ lastUpdateAt }}</li>
     </ul>
-    <span>{{repoData.repo.language}}</span>
   </footer>
 </div>
