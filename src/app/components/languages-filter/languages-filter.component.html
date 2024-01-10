@@ -1,20 +1,65 @@
-<div>
+<!-- <div>
+  <input
+    type="radio"
+    name="language-filter"
+    id="all languages"
+    checked
+    (change)="getSelectedLanguage($event)"
+  />
+  <label for="all languages">All repositories ({{ this.languageCount }})</label>
+</div>
+<div *ngFor="let item of languages">
+  <input
+    type="radio"
+    name="language-filter"
+    id="{{ item }}"
+    value="{{ item }}"
+    (change)="getSelectedLanguage($event)"
+  />
+  <label for="{{ item }}"
+    >{{ item }} ({{ countLanguageOccurrences(item) }})</label
+  >
+</div> -->
+ <div class="form-control">
+  <label class="label cursor-pointer">
     <input
+      class="radio radio-primary"
       type="radio"
       name="language-filter"
       id="all languages"
+      value="All repositories"
       checked
       (change)="getSelectedLanguage($event)"
     />
-    <label for="all languages">All repositories ({{ this.languageCount }})</label>
-  </div>
-  <div *ngFor="let item of languages">
+    <span class="label-text">All repositories ({{ languageCount }})</span>
+  </label>
+</div>
+<div class="form-control" *ngFor="let item of languages">
+  <label for="{{item}}" class="label cursor-pointer">
     <input
+      class="radio radio-primary"
       type="radio"
       name="language-filter"
-      id="{{ item }}"
-      value="{{ item }}"
+      id="{{item}}"
+      value="{{item}}"
+
       (change)="getSelectedLanguage($event)"
     />
-    <label for="{{ item }}">{{ item }} ({{ countLanguageOccurrences(item) }})</label>
-  </div>
+    <span class="label-text"
+      >{{ item }} ({{ countLanguageOccurrences(item) }})</span
+    >
+  </label>
+</div>
+
+<!--  <div class="form-control">
+  <label class="label cursor-pointer">
+    <span class="label-text">Red pill</span> 
+    <input type="radio" name="radio-10" class="radio  checked:bg-red-500" value="Red pill" (change)="getSelectedLanguage($event)"/>
+  </label>
+</div>
+<div class="form-control">
+  <label class="label cursor-pointer">
+    <span class="label-text">Blue pill</span> 
+    <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+  </label>
+</div> -->

@@ -43,8 +43,7 @@ export class LanguagesFilterComponent implements OnInit {
   }
 
   getSelectedLanguage(e: any) {
-    this.selectedLanguage = e.target.id;
-
+    this.selectedLanguage = e.target.value;
     this.sendSelectedLanguage();
   }
 
