@@ -1,11 +1,22 @@
 <section>
   <div>
-    <app-search
-      placeholderText="Search Repos"
-      id="search-repos"
-      (searchQueryEvent)="receiveSearchQuery($event)"
-      (input)="searchRepos()"
-    ></app-search>
+    <div >
+      <app-sort-repos
+        name="sort-options"
+        id="sort-options"
+        (sortOptionEvent)="receiveSortOption($event)"
+        (change)="sortRepos()"
+      ></app-sort-repos>
+    </div>
+    <div>
+      <app-search
+        placeholderText="Repo name"
+        labelText="Search repos"
+        id="search-repos"
+        (searchQueryEvent)="receiveSearchQuery($event)"
+        (input)="searchRepos()"
+      ></app-search>
+    </div>
   </div>
   <aside>
     <app-languages-filter
@@ -13,14 +24,7 @@
       (change)="filterByLanguage()"
     ></app-languages-filter>
   </aside>
-  <div>
-    <app-sort-repos
-      name="sort-options"
-      id="sort-options"
-      (sortOptionEvent)="receiveSortOption($event)"
-      (change)="sortRepos()"
-    ></app-sort-repos>
-  </div>
+  <div></div>
 </section>
 
 <main *ngFor="let repo of filteredRepos; index as i">

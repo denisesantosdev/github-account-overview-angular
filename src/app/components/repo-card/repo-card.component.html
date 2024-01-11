@@ -7,31 +7,31 @@
     <span>{{ repoData.repo.language }}</span>
   </header>
   <main>
-    <div class="stats shadow stats-vertical lg:stats-horizontal">
-      <div class="stat">
+    <div class="stats gap-2 shadow stats-horizontal">
+      <div class="stat px-1">
         <div class="stat-figure text-primary">
           <fa-icon [icon]="forkIcon"></fa-icon>
         </div>
         <div class="stat-title">Forks</div>
-        <div class="stat-value text-primary">
+        <div class="stat-value text-primary text-lg">
           <p>{{ repoData.repo.forks_count }}</p>
         </div>
       </div>
-      <div class="stat">
+      <div class="stat px-1">
         <div class="stat-figure text-primary">
           <fa-icon [icon]="watchersIcon"></fa-icon>
         </div>
         <div class="stat-title">Watchers</div>
-        <div class="stat-value text-primary">
+        <div class="stat-value text-primary text-lg">
           <p>{{ repoData.repo.watchers_count }}</p>
         </div>
       </div>
-      <div class="stat">
+      <div class="stat px-1">
         <div class="stat-figure text-primary">
           <fa-icon [icon]="starIcon"></fa-icon>
         </div>
         <div class="stat-title">Stars</div>
-        <div class="stat-value text-primary">
+        <div class="stat-value text-primary text-lg">
           <p>{{ repoData.repo.stargazers_count }}</p>
         </div>
       </div>
