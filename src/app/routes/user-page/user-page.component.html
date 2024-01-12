@@ -1,9 +1,17 @@
-<div *ngIf="apiResponse; else showError">
-  <app-name-section [user]="user"></app-name-section>
-  <app-tabs></app-tabs>
-  <router-outlet></router-outlet>
+<div *ngIf="apiResponse; else showError" class="p-4">
+  <div class="max-w-6xl m-auto mb-8">
+    <app-name-section [user]="user"></app-name-section>
+  </div>
+  <div class="max-w-6xl m-auto mb-8">
+    <app-tabs></app-tabs>
+  </div>
+  <div class="max-w-6xl m-auto mb-8">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
 <ng-template #showError>
-  <app-error errorText="{{ errorText }}"></app-error>
+  <div class="max-w-6xl m-auto">
+    <app-error errorText="{{ errorText }}"></app-error>
+  </div>
 </ng-template>

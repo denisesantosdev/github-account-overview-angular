@@ -1,10 +1,9 @@
-<main class=" mt-20 px-2">
+<main class="grid gap-4 justify-items-center mt-20 px-2 text-center">
   <span class="text-primary">
     <fa-icon [icon]="githubIcon" size="6x"></fa-icon>
   </span>
   <h1 class="text-4xl font-bold mt-5">Get your github account overview</h1>
-  <div class="mt-14">
-    <form class="">
+    <form class="sm:w-fit">
       <app-search
         placeholderText="Your username"
         labelText="github.com/"
@@ -13,9 +12,8 @@
         (input)="enableButton()"
       ></app-search>
       <button [routerLink]="generateUserRoute()" [disabled]="disabled"
-      class="btn btn-primary mt-2 w-full">
+      class="btn btn-primary mt-2 w-full sm:max-w-32">
         Search
       </button>
     </form>
-  </div>
 </main>
