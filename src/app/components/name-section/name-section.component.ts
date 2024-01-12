@@ -10,6 +10,7 @@ import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
 export class NameSectionComponent implements OnInit {
   @Input() user?: UserData
   githubUserIcon = fontAwesomeicons.faGithubAlt
+  arrowLeftIcon = fontAwesomeicons.faArrowLeft
 
   constructor() { }
 

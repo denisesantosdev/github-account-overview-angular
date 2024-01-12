@@ -7,6 +7,7 @@ import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   @Input() placeholderText: string = '';
+  @Input() labelText: string = '';
   @Input() id: string = '';
   @Output() searchQueryEvent = new EventEmitter<string>()
 

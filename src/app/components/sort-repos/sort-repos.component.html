@@ -1,6 +1,10 @@
-<label for="{{ id }}">Sort by: </label>
-<select name="{{ name }}" id="{{ id }}" (change)="getSortOption($event)">
-  <option *ngFor="let option of sortOptions" value="{{ option }}">
-    {{ option }}
-  </option>
-</select>
+<label class="form-control mb-8">
+  <div class="label">
+    <span class="label-text">Sort By</span>
+  </div>
+  <select class="select select-border" name="{{ name }}" id="{{ id }}" (change)="getSortOption($event)">
+    <option *ngFor="let option of sortOptions" value="{{ option }}">
+      {{ option }}
+    </option>
+  </select>
+</label>

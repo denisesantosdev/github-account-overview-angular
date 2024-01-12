@@ -1,15 +1,20 @@
 <section>
-  <button [routerLink]="['']">Back</button>
+  <button class="link link-hover mb-4" [routerLink]="['']">
+    <fa-icon [icon]="arrowLeftIcon"></fa-icon>
+    Back
+</button>
 
   <div>
-    <div>
+    <div class="flex gap-5 text-2xl sm:text-6xl">
       <span>
         <fa-icon [icon]="githubUserIcon"></fa-icon>
       </span>
-      <h1>{{user?.name}}</h1>
+      <div>
+        <h1 class="font-bold">{{ user?.name }}</h1>
+        <a class="link link-primary link-hover text-lg" href="{{ user?.html_url }}" target="_blank">
+          <p>@{{ user?.login }}</p>
+        </a>
+      </div>
     </div>
-    <a href="{{user?.html_url}}" target="_blank">
-      <p>@{{user?.login}}</p>
-    </a>
   </div>
 </section>

@@ -1,10 +1,13 @@
-<div>
-  <input
-    type="search"
-    name="{{ id }}"
-    id="{{ id }}"
-    placeholder="{{ placeholderText }}"
-    (input)="sendSearchQuery($event)"
-  />
-  <label for="{{ id }}">{{ placeholderText }}</label>
-</div>
+<label for="{{ id }}">
+    <div class="label">
+      <span class="label-text">{{labelText}}</span>
+    </div>
+    <input
+      class="input input-bordered  w-full sm:max-w-80"
+      type="search"
+      name="{{ id }}"
+      id="{{ id }}"
+      placeholder="{{ placeholderText }}"
+      (input)="sendSearchQuery($event)"
+    />
+</label>

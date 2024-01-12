@@ -1,37 +1,46 @@
-<div>
+<div class="p-4">
   <header>
-    <a href={{repoData.repo.html_url}} target="_blank">
-      <h2>{{repoData.repo.name}}</h2>
+    <a href="{{ repoData.repo.html_url }}" target="_blank">
+      <h2 class="text-2xl text-primary mb-4">{{ repoData.repo.name }}</h2>
     </a>
-    <p>{{repoData.repo.description}}</p>
+    <p class="mb-2">{{ repoData.repo.description }}</p>
+    <span>{{ repoData.repo.language }}</span>
   </header>
-  <main>
-    <ul>
-      <li>
-    <fa-icon [icon]="forkIcon"></fa-icon>
-        
-        <p>{{repoData.repo.forks_count}}</p>
-        <p>Forks</p>
-      </li>
-      <li>
-    <fa-icon [icon]="watchersIcon"></fa-icon>
-        
-        <p>{{repoData.repo.watchers_count}}</p>
-        <p>Watchers</p>
-      </li>
-      <li>
-    <fa-icon [icon]="starIcon"></fa-icon>
-        
-        <p>{{repoData.repo.stargazers_count}}</p>
-        <p>Stars</p>
-      </li>
-    </ul>
+  <main class=" mb-4">
+    <div class="stats  gap-3 shadow stats-vertical sm:stats-horizontal">
+      <div class="stat">
+        <div class="stat-figure text-primary">
+          <fa-icon [icon]="forkIcon"></fa-icon>
+        </div>
+        <div class="stat-title">Forks</div>
+        <div class="stat-value text-primary text-lg">
+          <p>{{ repoData.repo.forks_count }}</p>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure text-primary">
+          <fa-icon [icon]="watchersIcon"></fa-icon>
+        </div>
+        <div class="stat-title">Watchers</div>
+        <div class="stat-value text-primary text-lg">
+          <p>{{ repoData.repo.watchers_count }}</p>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure text-primary">
+          <fa-icon [icon]="starIcon"></fa-icon>
+        </div>
+        <div class="stat-title">Stars</div>
+        <div class="stat-value text-primary text-lg">
+          <p>{{ repoData.repo.stargazers_count }}</p>
+        </div>
+      </div>
+    </div>
   </main>
   <footer>
-    <ul>
-       <li>Created at: {{createdAt}}</li>
-      <li>Last update: {{lastUpdateAt}}</li>
+    <ul class="flex gap-4 flex-wrap">
+      <li>Created at: {{ createdAt }}</li>
+      <li>Last update: {{ lastUpdateAt }}</li>
     </ul>
-    <span>{{repoData.repo.language}}</span>
   </footer>
 </div>

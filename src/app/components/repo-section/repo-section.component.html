@@ -1,19 +1,5 @@
-<section>
-  <div>
-    <app-search
-      placeholderText="Search Repos"
-      id="search-repos"
-      (searchQueryEvent)="receiveSearchQuery($event)"
-      (input)="searchRepos()"
-    ></app-search>
-  </div>
-  <aside>
-    <app-languages-filter
-      (languageEvent)="receiveSelectedLanguage($event)"
-      (change)="filterByLanguage()"
-    ></app-languages-filter>
-  </aside>
-  <div>
+<section class="flex sm:justify-end gap-2">
+  <div class="w-full sm:max-w-80">
     <app-sort-repos
       name="sort-options"
       id="sort-options"
@@ -21,8 +7,29 @@
       (change)="sortRepos()"
     ></app-sort-repos>
   </div>
+  <div class="w-full sm:max-w-80">
+    <app-search
+      placeholderText="Repo name"
+      labelText="Search repos"
+      id="search-repos"
+      (searchQueryEvent)="receiveSearchQuery($event)"
+      (input)="searchRepos()"
+    ></app-search>
+  </div>
 </section>
 
-<main *ngFor="let repo of filteredRepos; index as i">
-  <app-repo-card [repoData]="{repo}"></app-repo-card>
-</main>
+<div class="sm:flex gap-10">
+  <aside class="w-full sm:max-w-40 mb-4">
+    <app-languages-filter
+      (languageEvent)="receiveSelectedLanguage($event)"
+      (change)="filterByLanguage()"
+    ></app-languages-filter>
+  </aside>
+
+  <main class="grid sm:grid-cols-1 lg:grid-cols-2 gap-8">
+    <app-repo-card
+      *ngFor="let repo of filteredRepos; index as i"
+      [repoData]="{repo}"
+    ></app-repo-card>
+  </main>
+</div>
