@@ -1,12 +1,12 @@
-<div class="p-4">
+<div class="p-4 border border-gray-800 rounded-md">
   <header>
     <a href="{{ repoData.repo.html_url }}" target="_blank">
-      <h2 class="text-2xl text-primary mb-4">{{ repoData.repo.name }}</h2>
+      <h2 class="text-2xl text-primary mb-4 border-gray-800">{{ repoData.repo.name }}</h2>
     </a>
     <p class="mb-2">{{ repoData.repo.description }}</p>
     <span>{{ repoData.repo.language }}</span>
   </header>
-  <main class=" mb-4">
+  <main class="mb-4">
     <div class="stats  gap-3 shadow stats-vertical sm:stats-horizontal">
       <div class="stat">
         <div class="stat-figure text-primary">
