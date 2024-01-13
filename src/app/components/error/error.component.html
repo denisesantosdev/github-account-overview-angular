@@ -1,5 +1,11 @@
-<div>
-  <button [routerLink]="['']">Back</button>
+<div class="mt-12">
+  <button class="link link-hover" [routerLink]="['']">
+    <fa-icon [icon]="arrowLeftIcon"></fa-icon>
+    Back
+</button>
 
-  <h1>{{ errorText }}</h1>
+  <div class="grid justify-items-center mt-12">
+    <fa-icon [icon]="sadFaceIcon" size="8x"></fa-icon>
+    <h1 class="mt-8 text-error">{{ errorText }}</h1>
+  </div>
 </div>
