@@ -3,11 +3,12 @@ import { UserData } from 'src/app/models/userData';
 import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
 
 @Component({
-  selector: 'app-name-section',
-  templateUrl: './name-section.component.html',
-  styleUrls: ['./name-section.component.css']
+  selector: 'app-profile-section',
+  templateUrl: './profile-section.component.html',
+  styleUrls: []
 })
-export class NameSectionComponent implements OnInit {
+
+export class ProfileSectionComponent implements OnInit {
   @Input() user?: UserData
   githubUserIcon = fontAwesomeicons.faGithubAlt
   arrowLeftIcon = fontAwesomeicons.faArrowLeft

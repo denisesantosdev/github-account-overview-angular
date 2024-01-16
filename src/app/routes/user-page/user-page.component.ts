@@ -9,7 +9,7 @@ import { GithubUserService } from 'src/app/services/github-user.service';
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
-  styleUrls: ['./user-page.component.css'],
+  styleUrls: [],
 })
 export class UserPageComponent implements OnInit {
   user!: UserData;

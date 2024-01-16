@@ -5,7 +5,7 @@ import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
 @Component({
   selector: 'app-repo-card',
   templateUrl: './repo-card.component.html',
-  styleUrls: ['./repo-card.component.css']
+  styleUrls: []
 })
 export class RepoCardComponent implements OnInit {
   @Input() repoData: any

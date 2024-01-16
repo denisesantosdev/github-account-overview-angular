@@ -10,7 +10,7 @@ import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
 @Component({
   selector: 'app-stats-section',
   templateUrl: './stats-section.component.html',
-  styleUrls: ['./stats-section.component.css'],
+  styleUrls: [],
 })
 export class StatsSectionComponent implements OnInit {
   user!: UserData;
