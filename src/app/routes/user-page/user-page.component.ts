@@ -31,6 +31,11 @@ export class UserPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchUser();
+    this.fetchRepos();
+  }
+
+  fetchUser() {
     this.service.fetchUser(this.searhQuery.username).subscribe({
       next: (res) => {
         this.user = this.service.shapeUserData(res);
@@ -50,7 +55,9 @@ export class UserPageComponent implements OnInit {
         }
       },
     });
+  }
 
+  fetchRepos() {
     this.repoService
       .fetchRepo(this.searhQuery.username, this.itemsPerPage, this.pageNumber)
       .subscribe({
