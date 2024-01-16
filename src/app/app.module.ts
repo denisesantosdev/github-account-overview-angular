@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { SearchPageComponent } from './routes/search-page/search-page.component';
-import { NameSectionComponent } from './components/name-section/name-section.component';
+import { ProfileSectionComponent } from './components/profile-section/profile-section.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { RepoCardComponent } from './components/repo-card/repo-card.component';
 import { StatsSectionComponent } from './components/stats-section/stats-section.component';
@@ -25,7 +25,7 @@ import { ErrorComponent } from './components/error/error.component';
     AppComponent,
     SearchPageComponent,
     UserPageComponent,
-    NameSectionComponent,
+    ProfileSectionComponent,
     TabsComponent,
     RepoCardComponent,
     StatsSectionComponent,

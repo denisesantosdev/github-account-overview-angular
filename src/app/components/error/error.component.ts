@@ -4,7 +4,7 @@ import { fontAwesomeicons } from 'src/app/shared/data/fa-icons';
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css'],
+  styleUrls: [],
 })
 export class ErrorComponent implements OnInit {
   @Input() errorText: string = '';

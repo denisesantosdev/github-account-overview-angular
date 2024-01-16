@@ -6,7 +6,7 @@ import { GithubRepoService } from 'src/app/services/github-repo.service';
 @Component({
   selector: 'app-repo-section',
   templateUrl: './repo-section.component.html',
-  styleUrls: ['./repo-section.component.css'],
+  styleUrls: [],
 })
 export class RepoSectionComponent implements OnInit {
   repoData!: userRepoData[];

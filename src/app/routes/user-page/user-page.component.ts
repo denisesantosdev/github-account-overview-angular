@@ -9,7 +9,7 @@ import { GithubUserService } from 'src/app/services/github-user.service';
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
-  styleUrls: ['./user-page.component.css'],
+  styleUrls: [],
 })
 export class UserPageComponent implements OnInit {
   user!: UserData;
@@ -31,6 +31,11 @@ export class UserPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchUser();
+    this.fetchRepos();
+  }
+
+  fetchUser() {
     this.service.fetchUser(this.searhQuery.username).subscribe({
       next: (res) => {
         this.user = this.service.shapeUserData(res);
@@ -50,7 +55,9 @@ export class UserPageComponent implements OnInit {
         }
       },
     });
+  }
 
+  fetchRepos() {
     this.repoService
       .fetchRepo(this.searhQuery.username, this.itemsPerPage, this.pageNumber)
       .subscribe({

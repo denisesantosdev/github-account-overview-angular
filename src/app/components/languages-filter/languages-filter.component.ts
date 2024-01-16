@@ -5,7 +5,7 @@ import { GithubRepoService } from 'src/app/services/github-repo.service';
 @Component({
   selector: 'app-languages-filter',
   templateUrl: './languages-filter.component.html',
-  styleUrls: ['./languages-filter.component.css'],
+  styleUrls: [],
 })
 export class LanguagesFilterComponent implements OnInit {
   @Output() languageEvent = new EventEmitter<string>();

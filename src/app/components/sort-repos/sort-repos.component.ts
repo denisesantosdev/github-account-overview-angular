@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-sort-repos',
   templateUrl: './sort-repos.component.html',
-  styleUrls: ['./sort-repos.component.css']
+  styleUrls: []
 })
 export class SortReposComponent implements OnInit {
   @Input() id:string = ''
