@@ -17,6 +17,8 @@ export class UserPageComponent implements OnInit {
   apiResponse: boolean = true;
   searhQuery: any = '';
   errorText: string = '';
+  itemsPerPage: number = 100;
+  pageNumber: number = 1;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -49,24 +51,26 @@ export class UserPageComponent implements OnInit {
       },
     });
 
-    this.repoService.fetchRepo(this.searhQuery.username).subscribe({
-      next: (res) => {
-        this.repos = this.repoService.shapeRepoData(res);
-      },
-      error: (err) => {
-        if (err instanceof HttpErrorResponse) {
-          if (err.status === 404) {
-            this.apiResponse = false;
-            this.errorText = 'User not found!';
+    this.repoService
+      .fetchRepo(this.searhQuery.username, this.itemsPerPage, this.pageNumber)
+      .subscribe({
+        next: (res) => {
+          this.repos = this.repoService.shapeRepoData(res);
+        },
+        error: (err) => {
+          if (err instanceof HttpErrorResponse) {
+            if (err.status === 404) {
+              this.apiResponse = false;
+              this.errorText = 'User not found!';
+            } else {
+              this.apiResponse = false;
+              this.errorText = 'An error occurred while fetching user data';
+            }
           } else {
             this.apiResponse = false;
-            this.errorText = 'An error occurred while fetching user data';
+            this.errorText = 'An unexpected error occurred';
           }
-        } else {
-          this.apiResponse = false;
-          this.errorText = 'An unexpected error occurred';
-        }
-      },
-    });
+        },
+      });
   }
 }

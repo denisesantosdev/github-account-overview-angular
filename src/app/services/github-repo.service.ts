@@ -16,8 +16,12 @@ export class GithubRepoService {
     this.baseUrl = environment.gitHubApi;
   }
 
-  fetchRepo(user: string): Observable<any> {
-    this.repoData = this.http.get<any>(`${this.baseUrl}${user}/repos`);
+  fetchRepo(
+    user: string,
+    itemsPerPage: number,
+    pageNumber: number
+  ): Observable<any> {
+    this.repoData = this.http.get<any>(`${this.baseUrl}${user}/repos?per_page=${itemsPerPage}&page=${pageNumber}`);
 
     return this.repoData;
   }

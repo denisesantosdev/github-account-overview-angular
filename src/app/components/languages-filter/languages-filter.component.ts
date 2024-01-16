@@ -22,8 +22,6 @@ export class LanguagesFilterComponent implements OnInit {
         this.repoData = this.service.getRepoShapedData();
         this.generateLanguagesFilters();
         this.languageCount = this.repoData.length;
-        console.log(this.repoData);
-        console.log(this.repoData.length);
       },
     });
   }
