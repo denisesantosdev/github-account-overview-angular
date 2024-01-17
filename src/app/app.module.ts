@@ -11,7 +11,6 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { RepoCardComponent } from './components/repo-card/repo-card.component';
 import { StatsSectionComponent } from './components/stats-section/stats-section.component';
 import { RepoSectionComponent } from './components/repo-section/repo-section.component';
-import { LoaderComponent } from './components/loader/loader.component';
 import { UserPageComponent } from './routes/user-page/user-page.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -30,7 +29,6 @@ import { ErrorComponent } from './components/error/error.component';
     RepoCardComponent,
     StatsSectionComponent,
     RepoSectionComponent,
-    LoaderComponent,
     SearchComponent,
     LanguagesFilterComponent,
     SortReposComponent,
